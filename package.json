@@ -1,0 +1,22 @@
+{
+  "name": "flashline-iptv",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site vitrine Flashline IPTV — abonnements IPTV premium pour la France",
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "shot": "node screenshot.mjs"
+  },
+  "dependencies": {
+    "geist": "^1.7.2",
+    "next": "^16.3.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "sharp": "^0.35.3"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.6.0"
+  }
+}
