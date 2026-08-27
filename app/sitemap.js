@@ -12,6 +12,7 @@ export default function sitemap() {
     { path: '/faq', changeFrequency: 'monthly', priority: 0.7 },
     { path: '/blog', changeFrequency: 'weekly', priority: 0.6 },
     { path: '/contact', changeFrequency: 'monthly', priority: 0.6 },
+    { path: '/revendeur', changeFrequency: 'monthly', priority: 0.8 },
     // Pages légales : indexables (signal de confiance E-E-A-T) mais faible priorité.
     { path: '/mentions-legales', changeFrequency: 'yearly', priority: 0.3 },
     { path: '/confidentialite', changeFrequency: 'yearly', priority: 0.3 },
