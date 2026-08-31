@@ -3,32 +3,72 @@ import Reveal from '@/components/Reveal';
 import CtaBand from '@/components/CtaBand';
 import JsonLd from '@/components/JsonLd';
 import { breadcrumbSchema, openGraph } from '@/lib/seo';
-import { Arrow, Grid, Desktop, ShieldCheck, Bolt } from '@/components/Icons';
+import { SITE, whatsappLink } from '@/lib/site';
+import { Arrow, Check, ShieldCheck, Bolt, Grid, Desktop, Star, Mail } from '@/components/Icons';
 
 export const metadata = {
-  title: 'Devenir Revendeur IPTV — Panel & Crédits Pas Chers',
+  title: 'Devenir Revendeur IPTV — Panel & Crédits',
   description:
-    'Lancez votre propre activité IPTV. Panel de gestion, crédits à prix réduits, marque blanche. Aucune compétence technique requise.',
+    'Lancez votre propre activité IPTV. Panel de gestion, crédits, marque blanche. Aucune compétence technique requise.',
   alternates: { canonical: '/revendeur' },
   openGraph: openGraph({
     path: '/revendeur',
-    title: 'Devenir Revendeur IPTV Flashline',
+    title: 'Devenir Revendeur Flashline IPTV',
     description:
       'Gérez vos clients, générez vos propres lignes et gagnez de l\'argent. Panel de contrôle facile et prix très avantageux.',
   }),
 };
 
-const BENEFITS = [
-  { icon: Grid, title: 'Panel de gestion', text: 'Une interface web complète pour créer, modifier et prolonger les abonnements de vos clients en un clic.' },
-  { icon: ShieldCheck, title: 'Marque blanche', text: 'Revendez nos services sous votre propre nom. Aucune mention de Flashline n\'apparaît chez vos clients.' },
-  { icon: Bolt, title: 'Serveurs stables', text: 'Profitez de la même infrastructure anti-coupure 4K que nos clients directs. Vos clients resteront.' },
-  { icon: Desktop, title: 'Aucun matériel', text: 'Tout se gère en ligne. Vous n\'avez besoin que d\'un ordinateur ou d\'un smartphone pour travailler.' },
+const HOW_TO_STEPS = [
+  { icon: Star, title: '1. Choisissez votre pack' },
+  { icon: Mail, title: '2. Recevez la facture et payez' },
+  { icon: Check, title: '3. Commencez à vendre' },
 ];
 
 const PACKS = [
-  { credits: 50, price: '150 €', perCredit: '3,00 €' },
-  { credits: 100, price: '250 €', perCredit: '2,50 €', highlight: true },
-  { credits: 200, price: '400 €', perCredit: '2,00 €' },
+  { 
+    credits: 10, 
+    price: '250 €',
+    features: [
+      'Les crédits n\'expirent jamais',
+      'Votre propre panel revendeur',
+      'Accès à toutes les chaînes',
+      'Vendez sous votre marque',
+      'Fixez vos propres prix',
+      'Tous les appareils supportés',
+      'Activation instantanée',
+      'Support 7j/7'
+    ]
+  },
+  { 
+    credits: 25, 
+    price: '500 €',
+    highlight: true,
+    features: [
+      'Les crédits n\'expirent jamais',
+      'Votre propre panel revendeur',
+      'Accès à toutes les chaînes',
+      'Vendez sous votre marque',
+      'Fixez vos propres prix',
+      'Tous les appareils supportés',
+      'Activation instantanée',
+      'Support 7j/7'
+    ]
+  },
+  { 
+    credits: 50, 
+    price: '900 €',
+    features: [
+      'Les crédits n\'expirent jamais',
+      'Votre propre panel revendeur',
+      'Accès à toutes les chaînes',
+      'Vendez sous votre marque',
+      'Fixez vos propres prix',
+      'Tous les appareils supportés',
+      'Activation instantanée',
+      'Support 7j/7'
+    ]
+  },
 ];
 
 export default function Revendeur() {
@@ -42,50 +82,42 @@ export default function Revendeur() {
       />
 
       {/* ---------- Hero ---------- */}
-      <section className="page-head">
-        <div className="wrap">
+      <section className="hero" style={{ textAlign: 'center', paddingBottom: 'var(--sp-6)' }}>
+        <div className="wrap wrap-narrow">
           <Reveal>
-            <nav className="breadcrumb" aria-label="Fil d'Ariane">
-              <Link href="/">Accueil</Link>
-              <span>/</span>
-              <span>Revendeur</span>
-            </nav>
-            <span className="badge"><span className="dot" />Business</span>
-            <h1 className="t-display" style={{ marginTop: 'var(--sp-3)' }}>
-              Devenez revendeur et
+            <h1 className="t-display">
+              Devenez revendeur Flashline IPTV – 
               <br />
-              <span className="grad-text">lancez votre activité</span>
+              <span className="grad-text">Proposez le meilleur du divertissement</span>
             </h1>
-            <p className="t-body-lg" style={{ marginTop: 'var(--sp-3)', maxWidth: '60ch' }}>
-              Vous souhaitez générer un revenu complémentaire ou lancer une activité à plein temps ?
-              Nous vous fournissons l&apos;infrastructure, le panel de contrôle et les crédits.
-              Vous fixez vos propres prix de vente.
+            <p className="t-body-lg" style={{ marginTop: 'var(--sp-4)', marginInline: 'auto' }}>
+              En devenant revendeur Flashline IPTV, vous avez l&apos;opportunité d&apos;offrir à vos clients 
+              les dernières nouveautés en matière de divertissement premium — tout en bâtissant une 
+              entreprise rentable. Notre plateforme intuitive, soutenue par un support dédié 7j/7, 
+              facilite la gestion de vos clients, la croissance de vos ventes et vous permet d&apos;offrir 
+              une valeur imbattable à chaque étape.
             </p>
-            <div className="btn-row" style={{ marginTop: 'var(--sp-5)' }}>
-              <Link className="btn btn-primary btn-lg" href="/contact?sujet=Revendeur">
-                Devenir revendeur <Arrow size={18} />
-              </Link>
-            </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ---------- Avantages ---------- */}
+      {/* ---------- Comment devenir revendeur ---------- */}
       <section className="section-tight">
         <div className="wrap">
           <Reveal className="section-head center">
-            <span className="badge"><span className="dot" />Vos avantages</span>
-            <h2 className="t-headline-lg">Tout ce qu&apos;il faut pour réussir</h2>
+            <h2 className="t-headline-lg">Comment devenir revendeur Flashline ?</h2>
+            <p className="t-body-lg">
+              Lancez votre propre activité IPTV avec Flashline – revendez des services TV premium et gagnez de l&apos;argent !
+            </p>
           </Reveal>
 
-          <div className="grid grid-4">
-            {BENEFITS.map((item, i) => {
-              const Icon = item.icon;
+          <div className="grid grid-3" style={{ marginTop: 'var(--sp-5)' }}>
+            {HOW_TO_STEPS.map((step, i) => {
+              const Icon = step.icon;
               return (
-                <Reveal key={item.title} className="glass lift" delay={i * 70}>
-                  <span className="icon-tile"><Icon size={21} /></span>
-                  <h3 className="t-headline-md">{item.title}</h3>
-                  <p className="t-body" style={{ marginTop: 'var(--sp-1)' }}>{item.text}</p>
+                <Reveal key={step.title} className="glass lift" delay={i * 70} style={{ textAlign: 'center', padding: 'var(--sp-5)' }}>
+                  <span className="icon-tile" style={{ marginBottom: 'var(--sp-4)' }}><Icon size={24} /></span>
+                  <h3 className="t-headline-md">{step.title}</h3>
                 </Reveal>
               );
             })}
@@ -93,32 +125,28 @@ export default function Revendeur() {
         </div>
       </section>
 
-      {/* ---------- Fonctionnement Crédits ---------- */}
+      {/* ---------- Tarification des crédits ---------- */}
       <section className="section">
-        <div className="wrap">
-          <Reveal className="section-head center">
-            <span className="badge"><span className="dot" />Crédits</span>
-            <h2 className="t-headline-lg">Comment fonctionnent les crédits ?</h2>
+        <div className="wrap wrap-narrow">
+          <Reveal className="glass">
+            <h2 className="t-headline-lg" style={{ marginBottom: 'var(--sp-3)', textAlign: 'center' }}>
+              Tarification des crédits du Panel
+            </h2>
+            <p className="t-body-lg" style={{ marginBottom: 'var(--sp-3)' }}>
+              En tant que revendeur, vous pouvez utiliser les crédits sur le panel revendeur Flashline 
+              pour créer des abonnements IPTV adaptés aux besoins de vos clients :
+            </p>
+            <ul style={{ listStyleType: 'disc', paddingLeft: 'var(--sp-4)', marginBottom: 'var(--sp-3)', color: 'var(--on-surface-variant)', fontSize: 'var(--fs-body-lg)', lineHeight: '1.6' }}>
+              <li>0,1 Crédit = 1 Mois d&apos;abonnement</li>
+              <li>0,3 Crédit = 3 Mois d&apos;abonnement</li>
+              <li>0,5 Crédit = 6 Mois d&apos;abonnement</li>
+              <li>1 Crédit = 12 Mois (1 An) d&apos;abonnement</li>
+            </ul>
             <p className="t-body-lg">
-              Le système est simple : vous achetez des crédits en gros, et vous les dépensez pour
-              générer des abonnements pour vos clients.
+              Ce système flexible vous permet d&apos;offrir des abonnements de toute durée, donnant à vos 
+              clients exactement ce dont ils ont besoin tout en maximisant votre potentiel de revenus.
             </p>
           </Reveal>
-
-          <div className="grid grid-3" style={{ marginTop: 'var(--sp-6)' }}>
-            <Reveal className="glass" delay={0}>
-              <h3 className="t-headline-md">1 mois</h3>
-              <p className="t-display" style={{ margin: 'var(--sp-2) 0' }}>0,1 <span className="t-body-lg">crédit</span></p>
-            </Reveal>
-            <Reveal className="glass" delay={70}>
-              <h3 className="t-headline-md">6 mois</h3>
-              <p className="t-display" style={{ margin: 'var(--sp-2) 0' }}>0,5 <span className="t-body-lg">crédit</span></p>
-            </Reveal>
-            <Reveal className="glass" delay={140}>
-              <h3 className="t-headline-md">12 mois</h3>
-              <p className="t-display" style={{ margin: 'var(--sp-2) 0' }}>1 <span className="t-body-lg">crédit</span></p>
-            </Reveal>
-          </div>
         </div>
       </section>
 
@@ -126,30 +154,38 @@ export default function Revendeur() {
       <section className="section-tight">
         <div className="wrap">
           <Reveal className="section-head center">
-            <span className="badge"><span className="dot" />Packs</span>
-            <h2 className="t-headline-lg">Nos tarifs revendeurs</h2>
-            <p className="t-body-lg">
-              Plus vous prenez un pack important, plus le coût d&apos;un crédit diminue.
-              Les crédits n&apos;expirent jamais.
-            </p>
+            <h2 className="t-headline-lg">Choisissez votre Pack Revendeur</h2>
           </Reveal>
 
-          <div className="grid grid-3">
+          <div className="grid grid-3" style={{ marginTop: 'var(--sp-5)' }}>
             {PACKS.map((pack, i) => (
-              <Reveal key={pack.credits} className={`glass lift${pack.highlight ? ' featured' : ''}`} delay={i * 70}>
-                {pack.highlight && <span className="badge badge-live" style={{ marginBottom: 'var(--sp-3)' }}>Le plus populaire</span>}
-                <h3 className="t-headline-md">{pack.credits} crédits</h3>
-                <div style={{ margin: 'var(--sp-2) 0', color: '#fff' }}>
-                  <b style={{ fontSize: '2rem', fontWeight: 800 }}>{pack.price}</b>
+              <Reveal key={pack.credits} className={`glass lift${pack.highlight ? ' featured' : ''}`} delay={i * 70} style={{ display: 'flex', flexDirection: 'column' }}>
+                <div style={{ textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: 'var(--sp-3)', marginBottom: 'var(--sp-3)' }}>
+                  <h3 className="t-headline-lg">{pack.credits} Crédits</h3>
+                  <p className="mono-label muted" style={{ marginTop: '4px' }}>Panel Revendeur</p>
+                  <div style={{ margin: 'var(--sp-3) 0 0', color: '#fff' }}>
+                    <b style={{ fontSize: '3rem', fontWeight: 800 }}>{pack.price}</b>
+                  </div>
                 </div>
-                <p className="t-body">Soit {pack.perCredit} le crédit</p>
-                <div style={{ marginTop: 'var(--sp-4)' }}>
-                  <Link 
-                    href={`/contact?sujet=Pack revendeur ${pack.credits} crédits`} 
-                    className={`btn btn-block ${pack.highlight ? 'btn-primary' : 'btn-quiet'}`}
+                
+                <ul style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: 'var(--sp-5)' }}>
+                  {pack.features.map((feat, j) => (
+                    <li key={j} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.9375rem', color: 'var(--on-surface-variant)' }}>
+                      <span style={{ color: 'var(--primary)', flexShrink: 0 }}><Check size={18} /></span>
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
+
+                <div style={{ marginTop: 'auto' }}>
+                  <a 
+                    href={whatsappLink(`Bonjour ${SITE.name}, je souhaite commander le pack revendeur de ${pack.credits} crédits à ${pack.price}.`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`btn btn-block ${pack.highlight ? 'btn-primary' : 'btn-glass'}`}
                   >
-                    Commander ce pack
-                  </Link>
+                    Commencer
+                  </a>
                 </div>
               </Reveal>
             ))}
@@ -157,12 +193,40 @@ export default function Revendeur() {
         </div>
       </section>
 
-      {/* ---------- CTA ---------- */}
+      {/* ---------- Start Selling Text ---------- */}
+      <section className="section">
+        <div className="wrap wrap-narrow" style={{ textAlign: 'center' }}>
+          <Reveal>
+            <h2 className="t-headline-lg" style={{ marginBottom: 'var(--sp-3)' }}>
+              Commencez à vendre les services Flashline IPTV
+            </h2>
+            <div className="t-body-lg" style={{ display: 'flex', flexDirection: 'column', gap: 'var(--sp-3)' }}>
+              <p>
+                Rejoignez Flashline IPTV et transformez votre passion pour le divertissement en profit. 
+                Une fois votre premier pack commandé, nous mettons en place votre espace de gestion.
+              </p>
+              <p>
+                Vous disposerez de votre propre Panel Revendeur, vous permettant de <b>créer et gérer des abonnements avec un contrôle total.</b>
+              </p>
+              <p>
+                Profitez d&apos;une construction de <b>serveurs stable et performante</b> pour soutenir vos 
+                besoins commerciaux. En cas de problème, nous avons ce qu&apos;il vous faut avec des serveurs 
+                de secours gratuits et des panels alternatifs pour garder vos clients connectés sans interruption.
+              </p>
+              <p>
+                Choisissez simplement un pack ci-dessus et commencez à développer votre activité – 
+                gagnez de l&apos;argent en toute confiance avec le support fiable de Flashline IPTV.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ---------- Footer CTA ---------- */}
       <CtaBand
-        badge="Contact rapide"
-        title="Prêt à devenir revendeur ?"
-        text="Contactez-nous pour toute question ou pour commander votre premier pack. Nous configurerons votre panel en quelques minutes."
-        secondary={{ href: '/contact', label: 'Nous contacter' }}
+        title="Vous n'êtes pas seul - Nous sommes là pour aider !"
+        text="Vous avez une question ou besoin d'assistance ? Notre équipe de support est toujours prête à vous aider. N'hésitez pas à nous contacter à tout moment, nous nous assurerons que vous obteniez les réponses et le soutien dont vous avez besoin."
+        secondary={{ href: '/contact', label: 'Obtenir de l\'aide' }}
       />
     </>
   );
